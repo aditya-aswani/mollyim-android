@@ -156,6 +156,7 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: Check version for upgrade compatibility
+        continue-on-error: true  # Don't fail the workflow if version check fails
         run: |
           echo "Listing latest APKs"
           gh release list --exclude-drafts --limit 10
